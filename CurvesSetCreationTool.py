@@ -27,7 +27,7 @@ class mySetCreationClass(QWidget):
     ''' Class that opens our UI and holds all of the tools functionality '''
 
     def __init__(self, *args, **kwargs):
-        ''' Constructor for your GUI class '''
+        ''' Constructor for GUI class '''
 
         super(mySetCreationClass, self).__init__(*args, **kwargs)  # Initialize the class as a typical QWidget class
         self.setParent(mayaMainWindow)  # Make this new Gui a child of the Maya manin window
@@ -58,67 +58,64 @@ class mySetCreationClass(QWidget):
 
     # Function that creates our circle controller
     def circleCtrl(self):
-        mc.circle(nr=[0, 1, 0])
+        mc.circle(name = 'circleCtrl', normal = [0, 1, 0])
 
         # Function that creates our square controller
 
     def squareCtrl(self):
-        square = cmds.curve(degree=1, point=[(-1, 0, 1), (1, 0, 1), (1, 0, -1), (-1, 0, -1), (-1, 0, 1)])
+        square = cmds.curve(name = 'squareCtrl', degree = 1, point = [(-1, 0, 1), (1, 0, 1), (1, 0, -1), (-1, 0, -1), (-1, 0, 1)])
 
     # Function that creates our triangle controller
     def triangleCtrl(self):
-        triangle = cmds.curve(degree=1, point=[(0, 0, 1), (-1, 0, -1), (1, 0, -1), (0, 0, 1)])
+        triangle = cmds.curve(name = 'triangleCtrl', degree = 1, point = [(0, 0, 1), (-1, 0, -1), (1, 0, -1), (0, 0, 1)])
 
     # Function that creates our diamond controller
     def diamondCtrl(self):
-        diamond = cmds.curve(degree=1, point=[(0, 0, 1), (1, 0, 0), (0, 0, -1), (-1, 0, 0), (0, 0, 1)])
+        diamond = cmds.curve(name = 'diamondCtrl', degree = 1, point = [(0, 0, 1), (1, 0, 0), (0, 0, -1), (-1, 0, 0), (0, 0, 1)])
 
     # Function that creates our X controller
     def xCtrl(self):
-        x = cmds.curve(degree=1, point=[(0, 0, -1), (1, 0, -2), (2, 0, -1), (1, 0, 0), (2, 0, 1), (1, 0, 2), (0, 0, 1),
-                                        (-1, 0, 2), (-2, 0, 1), (-1, 0, 0), (-2, 0, -1), (-1, 0, -2), (0, 0, -1)])
+        x = cmds.curve(name = 'xCtrl', degree = 1, point = [(0, 0, -1), (1, 0, -2), (2, 0, -1), (1, 0, 0), (2, 0, 1), (1, 0, 2), (0, 0, 1),
+                                            (-1, 0, 2), (-2, 0, 1), (-1, 0, 0), (-2, 0, -1), (-1, 0, -2), (0, 0, -1)])
 
     # Function that creates our plus controller
     def plusCtrl(self):
-        plus = cmds.curve(degree=1,
-                          point=[(0, 0, -1), (1, 0, -2), (2, 0, -1), (1, 0, 0), (2, 0, 1), (1, 0, 2), (0, 0, 1),
-                                 (-1, 0, 2), (-2, 0, 1), (-1, 0, 0), (-2, 0, -1), (-1, 0, -2), (0, 0, -1)])
+        plus = cmds.curve(name = 'plusCtrl', degree = 1, point = [(0, 0, -1), (1, 0, -2), (2, 0, -1), (1, 0, 0), (2, 0, 1), (1, 0, 2), (0, 0, 1),
+                                                                  (-1, 0, 2), (-2, 0, 1), (-1, 0, 0), (-2, 0, -1), (-1, 0, -2), (0, 0, -1)])
         cmds.rotate(0, -45, 0)
         cmds.makeIdentity(apply=True, t=1, r=1, s=1, n=2)
 
-        # Function that creates our heart controller
-
+    # Function that creates our heart controller
     def heartCtrl(self):
-        heart = cmds.curve(degree=1, point=[(0, 0, .2), (-0.3, 0, 0.3), (0, 0, .2)])
+        heart = cmds.curve(name = 'heartCtrl', degree = 1, point = [(0, 0, .2), (-0.3, 0, 0.3), (0, 0, .2)])
 
     # Function that creates our arrowR controller
     def arrowRCtrl(self):
-        arrowR = cmds.curve(degree=1,
-                            point=[(0, 0, -1), (2, 0, -1), (2, 0, -2), (4, 0, 0), (2, 0, 2), (2, 0, 1), (0, 0, 1),
-                                   (0, 0, -1)])
+        arrowR = cmds.curve(name = 'rArrowCtrl', degree = 1, point = [(0, 0, -1), (2, 0, -1), (2, 0, -2), (4, 0, 0), (2, 0, 2), (2, 0, 1), (0, 0, 1),
+                                                 (0, 0, -1)])
 
     # Function that creates our arrowUp controller
     def arrowUpCtrl(self):
-        arrowUp = cmds.curve(degree=1,
-                             point=[(0, 0, -1), (2, 0, -1), (2, 0, -2), (4, 0, 0), (2, 0, 2), (2, 0, 1), (0, 0, 1),
-                                    (0, 0, -1)])
+        arrowUp = cmds.curve(name = 'upArrowCtrl', degree = 1,
+                             point = [(0, 0, -1), (2, 0, -1), (2, 0, -2), (4, 0, 0), (2, 0, 2), (2, 0, 1), (0, 0, 1),
+                                      (0, 0, -1)])
         cmds.rotate(0, 90, 0)
         cmds.makeIdentity(apply=True, t=1, r=1, s=1, n=2)
 
         # Function that creates our arrowDown controller
 
     def arrowDownCtrl(self):
-        arrowUp = cmds.curve(degree=1,
-                             point=[(0, 0, -1), (2, 0, -1), (2, 0, -2), (4, 0, 0), (2, 0, 2), (2, 0, 1), (0, 0, 1),
-                                    (0, 0, -1)])
+        arrowDown = cmds.curve(name = 'downArrowCtrl', degree = 1,
+                             point = [(0, 0, -1), (2, 0, -1), (2, 0, -2), (4, 0, 0), (2, 0, 2), (2, 0, 1), (0, 0, 1),
+                                      (0, 0, -1)])
         cmds.rotate(0, -90, 0)
         cmds.makeIdentity(apply=True, t=1, r=1, s=1, n=2)
 
     # Function that creates our arrowL controller
     def arrowLCtrl(self):
-        arrowL = cmds.curve(degree=1,
-                            point=[(0, 0, -1), (-2, 0, -1), (-2, 0, -2), (-4, 0, 0), (-2, 0, 2), (-2, 0, 1), (0, 0, 1),
-                                   (0, 0, -1)])
+        arrowL = cmds.curve(name = 'lArrowCtrl', degree = 1,
+                            point = [(0, 0, -1), (-2, 0, -1), (-2, 0, -2), (-4, 0, 0), (-2, 0, 2), (-2, 0, 1), (0, 0, 1),
+                                     (0, 0, -1)])
 
     # Function that creates our arrowL controller
     def arrow2Ctrl(self):
@@ -177,21 +174,21 @@ class mySetCreationClass(QWidget):
             mc.setAttr(item + '.rz', zRot)
 
     def combineCurves(self, controller_name):
-        selected_curve_transforms = cmds.ls(selection=True, type="transform")
+        selected_curve_transforms = mc.ls(selection = True, type = "transform")
 
         if not selected_curve_transforms:
-            cmds.warning("No NURBS curve transforms selected.")
+            mc.warning("No NURBS curve transforms selected.")
             return None
 
         # Create a group to serve as the controller
-        controller_group = cmds.group(empty=True)
+        controller_group = mc.group(empty=True)
 
         # Parent the selected curve transforms under the controller group
         for curve_transform in selected_curve_transforms:
             # Get the shape node of the curve transform
-            curve_shape = cmds.listRelatives(curve_transform, shapes=True, type="nurbsCurve")
+            curve_shape = mc.listRelatives(curve_transform, shapes = True, type = "nurbsCurve")
             if curve_shape:
-                cmds.parent(curve_shape, controller_group, relative=True, shape=True)
+                mc.parent(curve_shape, controller_group, relative = True, shape = True)
 
     # Function that connects to our saveCurvesSet button that saves the selected curves in the scene to a unique json file
     def saveCurveSet(self):
